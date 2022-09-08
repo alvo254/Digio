@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom'
 
 import React, { useEffect, useState } from 'react'
 
+
 const Addtm = () => {
+
+  const delet = () =>{
+    axios.delete("http://localhost:9292/tms")
+  }
 
     const [data, setData] = useState([""])
 
@@ -11,7 +16,11 @@ const Addtm = () => {
         axios("http://localhost:9292/tms")
         .then((recv) => {setData(recv.data)})
     },[])
-    // console.log(data)
+    // console.log(data.map((resv) => 
+    //   console.log(resv)
+    // ))
+
+
 
   return (
     <div>
@@ -35,12 +44,13 @@ const Addtm = () => {
       <th scope="row">1</th>
       {
         data.map((resv, index) => (
+          
             <tr>
                 <th scope='row'>{index + 1}</th>
                 <td>{resv.name}</td>
                 <td>{resv.email}</td>
                 <td>{resv.speciality}</td>
-                <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
+                <Link class="btn btn-primary mr-2" to="/Edit/:id" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
                     Edit
                   </Link>
 
@@ -49,9 +59,6 @@ const Addtm = () => {
                   </Link> */}
 
                 <button style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
-
-
-                {/* <button class="btn btn-primary mr-2"></button> */}
 
 
             </tr>

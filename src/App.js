@@ -10,6 +10,9 @@ import AddTm from './components/AddTm/Addtm'
 import Addstudent from './components/Addstudent/Addstudent';
 import Edit from './components/Edit/Edit';
 import Add from './components/Add/Add';
+import Addcourses from './components/Addcources/Addcourses';
+import Editcourse from './components/Addcources/Editcourse/Editcourse';
+import Pushcourse from './components/Addcources/Adding/Pushcourse';
 
 function App() {
   return (
@@ -29,6 +32,10 @@ function App() {
       <Route path='/students' element={<Addstudent />}/>
       <Route path='/Edit' element={<Edit />}/>
       <Route path='/Add' element={<Add />}/>
+      <Route path='/Courses' element={<Addcourses />}/>
+      <Route path='/CourseEdit' element={<Editcourse />}/>
+      <Route path='/Pushcourse' element={<Pushcourse />}/>
+
 
       </Routes>
       </BrowserRouter>

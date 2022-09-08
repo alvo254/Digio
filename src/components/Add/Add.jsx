@@ -1,28 +1,68 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Add.css"
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 
 const Add = () => {
+
+  const {id } = useParams()
+
+  const [data, setData] = useState({
+    name: "",
+    email:"",
+    grades:""
+  })
+  
+
+  const handleChange = (e) =>{
+    const {name, value} = e.target
+    setData({...data, [name]:value})
+    
+  }
+
+
+  const submit = (event) =>{
+    event.preventDefault()
+    console.log(data)
+    axios.post("http://localhost:9292/student",{
+      name: data.name,
+      email: data.email,
+      grades: data.grades
+    })
+     .then((recv) => {console.log(recv)})
+     .then(err => console.log(err))
+    //  setData({
+    //   name: "",
+    //   email:"",
+    //   speciality:""
+    // })
+     
+  }
+
+
+
+
   return (
     <div>
+      <h1>Add Students</h1>
         <form className="editTm">
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+    <label>Name</label>
+    <input name='name' onChange={handleChange} class="form-control" aria-describedby="emailHelp" placeholder="Enter name"/>
     {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+    <input name='email' type="email" onChange={handleChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
     {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Specialization</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+    <label >Specialization</label>
+    <input name='grades' onChange={handleChange} class="form-control"  placeholder="grades"/>
   </div>
 
-  <button type="submit" class="btn btn-primary" style={{width:"90px"}}>Add</button>
+  <button type="submit" onClick={submit} class="btn btn-primary" style={{width:"90px"}}>Add</button>
 
   <Link class="btn btn-primary mr-2" to="/Tm" style={{background:"gray", border:"none", width:"90px", height:"40px", marginTop:"20px", marginLeft:"1rem"}}>
                     Cancel
