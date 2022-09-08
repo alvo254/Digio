@@ -15,6 +15,7 @@ const Addtm = () => {
 
   return (
     <div>
+      <h1>Technical mentors</h1>
         <table class="table">
   <thead>
     <tr>
@@ -22,6 +23,11 @@ const Addtm = () => {
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Specialization</th>
+      <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"Black", border:"none", width:"90px", height:"40px"}}>
+                    Add
+                  </Link>
+      {/* <button style={{background:"black", width:"100px"}} class="btn btn-primary mr-2 btn-dark">Add</button> */}
+
     </tr>
   </thead>
   <tbody>
@@ -34,34 +40,24 @@ const Addtm = () => {
                 <td>{resv.name}</td>
                 <td>{resv.email}</td>
                 <td>{resv.speciality}</td>
-                <button class="btn btn-primary mr-2">delete</button>
-                <button class="btn btn-primary mr-2 btn-dark">edit</button>
-                <button type="button" class="btn btn-dark">Dark</button>
-                <button type="button" class="btn btn-danger">Dark</button>
-                {/* <button class="btn btn-primary mr-2"></button> */}
-                {/* <Link class="btn btn-primary mr-2" to={`/courses/${courses.id}`}>
+                <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
                     View
-                  </Link> */}
+                  </Link>
+
+                  <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"red", border:"none", width:"90px", height:"40px"}}>
+                    Edit
+                  </Link>
+
+                {/* <button style={{border:"none", background:"blue"}} type="button" class="btn btn-dark">Dark</button> */}
+
+
+                {/* <button class="btn btn-primary mr-2"></button> */}
+
 
             </tr>
         ))
       }
-      {/* <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-    <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td> */}
-    
+     
   </tbody>
 </table>
     </div>

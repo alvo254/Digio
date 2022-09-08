@@ -8,6 +8,7 @@ import Reviews from './components/Reviews/Reviews';
 import About from './components/About/About';
 import AddTm from './components/AddTm/Addtm'
 import Addstudent from './components/Addstudent/Addstudent';
+import Edit from './components/Edit/Edit';
 
 function App() {
   return (
@@ -25,10 +26,8 @@ function App() {
       <Route path='/about' element={<About />}/>
       <Route path='/Tm' element={<AddTm />}/>
       <Route path='/students' element={<Addstudent />}/>
+      <Route path='/Edit' element={<Edit />}/>
 
-      
-
-      
       </Routes>
       </BrowserRouter>
 

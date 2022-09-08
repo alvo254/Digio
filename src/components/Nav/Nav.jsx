@@ -30,6 +30,7 @@ const Nav = () => {
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/Tm">Add Tm</a></li>
             <li><a class="dropdown-item" href="/Students">Add Student</a></li>
+            <li><a class="dropdown-item" href="/Students/Courses">Add Courses</a></li>
             <li><a class="dropdown-item" href="/review student">Review Student</a></li>
           </ul>
         </li>
