@@ -16,12 +16,18 @@ const Dash = () => {
       setTminfo({...tminfo, [name]:value})
     }
 
+    // useEffect(()=> {
+    //   axios.post("http://localhost:9292/tms",{
+    //     name: tminfo.name,
+    //     email: tminfo.email,
+    //     speciality: tminfo.speciality
+    //   })
+    // },[])
+
 
     const submit = (event) =>{
       event.preventDefault()
       console.log(tminfo)
-
-
       axios.post("http://localhost:9292/tms",{
         name: tminfo.name,
         email: tminfo.email,
@@ -31,8 +37,6 @@ const Dash = () => {
        .then(err => console.log(err))
     }
 
-
-    
 
   return (
     <div className='formation'>
@@ -47,7 +51,7 @@ const Dash = () => {
         <input name="speciality" type="text" placeholder='enter name' value={tminfo.speciality} onChange={handleChange}/>
         <button onClick={submit}> submit</button>
         <button>Delete</button>
-        <Link to="/dashboard">Cancel</Link>
+        <Link to="/">Cancel</Link>
 
         </div>
 
