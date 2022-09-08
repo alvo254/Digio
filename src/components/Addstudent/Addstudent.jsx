@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import React, { useEffect, useState } from 'react'
 
-const Addstudent = () => {
+const Addtm = () => {
 
     const [data, setData] = useState([""])
 
@@ -15,6 +15,7 @@ const Addstudent = () => {
 
   return (
     <div>
+      <h1>Students</h1>
         <table class="table">
   <thead>
     <tr>
@@ -22,6 +23,11 @@ const Addstudent = () => {
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Specialization</th>
+      <Link class="btn btn-primary mr-2" to="/Add" style={{background:"Black", border:"none", width:"90px", height:"40px"}}>
+                    Add
+                  </Link>
+      {/* <button style={{background:"black", width:"100px"}} class="btn btn-primary mr-2 btn-dark">Add</button> */}
+
     </tr>
   </thead>
   <tbody>
@@ -34,38 +40,28 @@ const Addstudent = () => {
                 <td>{resv.name}</td>
                 <td>{resv.email}</td>
                 <td>{resv.speciality}</td>
-                <button class="btn btn-primary mr-2">delete</button>
-                <button class="btn btn-primary mr-2 btn-dark">edit</button>
-                <button type="button" class="btn btn-dark">Dark</button>
-                <button type="button" class="btn btn-danger">Dark</button>
-                {/* <button class="btn btn-primary mr-2"></button> */}
-                {/* <Link class="btn btn-primary mr-2" to={`/courses/${courses.id}`}>
-                    View
+                <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
+                    Edit
+                  </Link>
+
+                  {/* <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"red", border:"none", width:"90px", height:"40px"}}>
+                    Delete
                   </Link> */}
+
+                <button style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
+
+
+                {/* <button class="btn btn-primary mr-2"></button> */}
+
 
             </tr>
         ))
       }
-      {/* <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-    <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td> */}
-    
+     
   </tbody>
 </table>
     </div>
   )
 }
 
-export default Addstudent
+export default Addtm

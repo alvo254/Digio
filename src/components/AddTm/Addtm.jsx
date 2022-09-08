@@ -23,7 +23,7 @@ const Addtm = () => {
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Specialization</th>
-      <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"Black", border:"none", width:"90px", height:"40px"}}>
+      <Link class="btn btn-primary mr-2" to="/Add" style={{background:"Black", border:"none", width:"90px", height:"40px"}}>
                     Add
                   </Link>
       {/* <button style={{background:"black", width:"100px"}} class="btn btn-primary mr-2 btn-dark">Add</button> */}
@@ -41,14 +41,14 @@ const Addtm = () => {
                 <td>{resv.email}</td>
                 <td>{resv.speciality}</td>
                 <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
-                    View
-                  </Link>
-
-                  <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"red", border:"none", width:"90px", height:"40px"}}>
                     Edit
                   </Link>
 
-                {/* <button style={{border:"none", background:"blue"}} type="button" class="btn btn-dark">Dark</button> */}
+                  {/* <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"red", border:"none", width:"90px", height:"40px"}}>
+                    Delete
+                  </Link> */}
+
+                <button style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
 
 
                 {/* <button class="btn btn-primary mr-2"></button> */}
