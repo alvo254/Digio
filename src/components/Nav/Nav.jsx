@@ -31,7 +31,7 @@ const Nav = () => {
             <li><a class="dropdown-item" href="/Tm">Add Tm</a></li>
             <li><a class="dropdown-item" href="/Students">Add Student</a></li>
             <li><a class="dropdown-item" href="/courses">Add Courses</a></li>
-            <li><a class="dropdown-item" href="/review">Review Student</a></li>
+            {/* <li><a class="dropdown-item" href="/review">Review Student</a></li> */}
           </ul>
         </li>
 {/* 

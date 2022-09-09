@@ -22,6 +22,9 @@ const Addtm = () => {
 
     // ))
 
+    const Deleter = (id) =>{
+      axios.delete(`http://localhost:9292/tms/${id}`)
+    }
 
 
   return (
@@ -60,7 +63,7 @@ const Addtm = () => {
                     Delete
                   </Link> */}
 
-                <button onClick={()=>handleClick(resv.id)} style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
+                <button onClick={()=>Deleter(resv.id)} style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
 
 
             </tr>

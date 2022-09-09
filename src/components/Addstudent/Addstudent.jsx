@@ -13,19 +13,19 @@ const Addstudent= () => {
 
     useEffect(()=> {
         axios("http://localhost:9292/student")
-        .then((recv) => {setData(recv.data)})
+        .then((recv) => {setData(recv.data)})  
     },[])
-    // console.log(data.map((resv) => 
-    //   console.log(resv)
-    // ))
 
-    // const editstu = data.map((thing) => ( 
-
-    // ))
     
 
-    const remover = () =>{
-      axios.delete(`http://localhost:9292/student/`)
+  //   const editstu = data.map((thing) => {
+  //     return {id: thing.id}
+
+  // })
+    
+
+    const remover = (id) =>{
+      axios.delete(`http://localhost:9292/student/${id}`)
     }
 
 
@@ -50,6 +50,7 @@ const Addstudent= () => {
   <tbody>
     
       <th scope="row">1</th>
+
       {
         data.map((resv, index) => (
           
@@ -64,11 +65,13 @@ const Addstudent= () => {
                     Edit
                   </Link>
 
+
+
                   {/* <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"red", border:"none", width:"90px", height:"40px"}}>
                     Delete
                   </Link> */}
 
-                <button onClick={remover} style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
+                <button onClick={() => remover(resv.id)} style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
 
 
             </tr>

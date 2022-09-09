@@ -62,7 +62,10 @@ const Add = () => {
     <input name='grades' onChange={handleChange} class="form-control"  placeholder="grades"/>
   </div>
 
-  <button type="submit" onClick={submit} class="btn btn-primary" style={{width:"90px"}}>Add</button>
+  <button type="submit" onClick={submit} class="btn btn-primary" style={{width:"90px", marginTop:"20px"}}>Add</button>
+  <Link class="btn btn-primary mr-2" to="/Students" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
+                    Back
+                  </Link>
 
   <Link class="btn btn-primary mr-2" to="/Tm" style={{background:"gray", border:"none", width:"90px", height:"40px", marginTop:"20px", marginLeft:"1rem"}}>
                     Cancel
