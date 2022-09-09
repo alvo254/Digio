@@ -6,25 +6,47 @@ import React, { useEffect, useState } from 'react'
 
 const Addtm = () => {
 
-  const handleClick = (id) =>{
-    axios.delete(`http://localhost:9292/tms/#{id}`)
-    .then((resv) => {console.log(resv.data)})
-  }
+  // const handleClick = (id) =>{
+  //   axios.delete(`http://localhost:9292/tms/#{id}`)
+  //   .then((resv) => {console.log(resv.data)})
+  // }
 
     const [data, setData] = useState([""])
 
-    useEffect(()=> {
+    // useEffect(()=> {
+    //     axios("http://localhost:9292/tms")
+    //     .then((recv) => {setData(recv.data)})
+
+        
+    // },[])
+
+    const Fetching = () => {
+      useEffect(()=> {
         axios("http://localhost:9292/tms")
         .then((recv) => {setData(recv.data)})
+
+        
     },[])
 
-    // console.log(data.map((resv) => 
+    }
+    Fetching()
 
-    // ))
+
 
     const Deleter = (id) =>{
-      axios.delete(`http://localhost:9292/tms/${id}`)
+
+     let getData = axios.delete(`http://localhost:9292/tms/${id}`)
+
+     console.log(data)
+    //  window.location.reload(false);
+    
+
+      console.log(getData)
+      Fetching()
+      
+
     }
+
 
 
   return (
@@ -63,7 +85,7 @@ const Addtm = () => {
                     Delete
                   </Link> */}
 
-                <button onClick={()=>Deleter(resv.id)} style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
+                <button onClick={()=>Deleter(resv.id)}  style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
 
 
             </tr>

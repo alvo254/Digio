@@ -38,9 +38,11 @@ const Nav = () => {
         <li class="nav-item">
           <a class="nav-link" href="/dashboard">Dashboard</a>
         </li> */}
-        <li class="nav-item">
+
+        {/* <li class="nav-item">
           <a class="nav-link" href="/reviews">reviews</a>
-        </li>
+        </li> */}
+        
         <li class="nav-item">
           <a class="nav-link" href="/about">About</a>
         </li>
