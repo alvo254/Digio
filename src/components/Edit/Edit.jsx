@@ -1,56 +1,83 @@
-import React, { useState } from 'react'
-import "./Edit.css"
+import React, { useEffect, useState } from 'react'
+// import "./Add.css"
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 
-const Edit = () => {
+const Edit = ({id}) => {
+
+  const  [gettings, setGetting] = useState([""])
+
+  useEffect(()=> {
+    axios("http://localhost:9292/student")
+    .then((resv) => setGetting(resv.data))
+  },[])
+  console.log(gettings)
+
+  // gettings.map((getting) => {
+
+  //   id = {getting.id}
+
+  // })
   
-  const { id } = useParams()
 
   const [data, setData] = useState({
     name: "",
     email:"",
-    speciality:""
+    grades:""
   })
+  
 
   const handleChange = (e) =>{
     const {name, value} = e.target
     setData({...data, [name]:value})
+    
   }
+
+
+
 
   const submit = (event) =>{
     event.preventDefault()
     console.log(data)
-    axios.patch(`http://localhost:9292/tms/${id}`,{
+    axios.patch(`http://localhost:9292/student/${id}`,{
       name: data.name,
       email: data.email,
-      speciality: data.speciality
+      grades: data.grades
     })
-     .then((recv) => {console.log(recv)})
+     .then((recv) => {console.log(recv.id)})
      .then(err => console.log(err))
+    //  setData({
+    //   name: "",
+    //   email:"",
+    //   speciality:""
+    // })
+     
   }
+
+
+
 
   return (
     <div>
-      <h1>Edit Tm</h1>
+      <h1>Edit Students</h1>
         <form className="editTm">
   <div class="form-group">
     <label>Name</label>
-    <input onChange={handleChange} class="form-control" name="name"  placeholder="Edit name"/>
+    <input name='name' onChange={handleChange} class="form-control" aria-describedby="emailHelp" placeholder="Enter name"/>
     {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Email</label>
-    <input onChange={handleChange} type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email"/>
+    <input name='email' type="email" onChange={handleChange} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
     {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
   </div>
   <div class="form-group">
-    <label>Specialization</label>
-    <input onChange={handleChange}  class="form-control"  name="speciality" placeholder="speciality"/>
+    <label >Specialization</label>
+    <input name='grades' onChange={handleChange} class="form-control"  placeholder="grades"/>
   </div>
 
-  <button onClick={submit} type="submit" class="btn btn-primary">update</button>
+  <button type="submit" class="btn btn-primary" style={{width:"90px"}}>Edit</button>
 
   <Link class="btn btn-primary mr-2" to="/Tm" style={{background:"gray", border:"none", width:"90px", height:"40px", marginTop:"20px", marginLeft:"1rem"}}>
                     Cancel

@@ -6,8 +6,9 @@ import React, { useEffect, useState } from 'react'
 
 const Addtm = () => {
 
-  const delet = () =>{
-    axios.delete("http://localhost:9292/tms")
+  const handleClick = (id) =>{
+    axios.delete(`http://localhost:9292/tms/#{id}`)
+    .then((resv) => {console.log(resv.data)})
   }
 
     const [data, setData] = useState([""])
@@ -16,8 +17,9 @@ const Addtm = () => {
         axios("http://localhost:9292/tms")
         .then((recv) => {setData(recv.data)})
     },[])
+
     // console.log(data.map((resv) => 
-    //   console.log(resv)
+
     // ))
 
 
@@ -50,7 +52,7 @@ const Addtm = () => {
                 <td>{resv.name}</td>
                 <td>{resv.email}</td>
                 <td>{resv.speciality}</td>
-                <Link class="btn btn-primary mr-2" to="/Edit/:id" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
+                <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
                     Edit
                   </Link>
 
@@ -58,7 +60,7 @@ const Addtm = () => {
                     Delete
                   </Link> */}
 
-                <button style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
+                <button onClick={()=>handleClick(resv.id)} style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
 
 
             </tr>

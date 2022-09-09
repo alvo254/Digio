@@ -2,6 +2,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import React, { useEffect, useState } from 'react'
+import Edit from '../Edit/Edit'
 
 
 const Addstudent= () => {
@@ -17,6 +18,15 @@ const Addstudent= () => {
     // console.log(data.map((resv) => 
     //   console.log(resv)
     // ))
+
+    // const editstu = data.map((thing) => ( 
+
+    // ))
+    
+
+    const remover = () =>{
+      axios.delete(`http://localhost:9292/student/`)
+    }
 
 
 
@@ -48,6 +58,8 @@ const Addstudent= () => {
                 <td>{resv.name}</td>
                 <td>{resv.email}</td>
                 <td>{resv.grades}</td>
+
+
                 <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
                     Edit
                   </Link>
@@ -56,7 +68,7 @@ const Addstudent= () => {
                     Delete
                   </Link> */}
 
-                <button style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
+                <button onClick={remover} style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
 
 
             </tr>
