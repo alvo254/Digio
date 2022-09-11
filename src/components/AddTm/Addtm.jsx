@@ -38,7 +38,9 @@ const Addtm = () => {
      let getData = axios.delete(`http://localhost:9292/tms/${id}`)
 
      console.log(data)
-    //  window.location.reload(false);
+     alert("Deleted")
+     window.location.reload(false);
+    
     
 
       console.log(getData)
