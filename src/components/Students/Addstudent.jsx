@@ -15,21 +15,12 @@ const Addstudent= () => {
         axios("https://digio-backend.herokuapp.com/student")
         .then((recv) => {setData(recv.data)})  
     },[])
-
-    
-
-  //   const editstu = data.map((thing) => {
-  //     return {id: thing.id}
-
-  // })
     
 
     const remover = (id) =>{
       axios.delete(`https://digio-backend.herokuapp.com/student/${id}`)
       alert("Deleted please refresh")
     }
-
-
 
   return (
     <div>

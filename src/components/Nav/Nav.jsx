@@ -43,9 +43,9 @@ const Nav = () => {
           <a class="nav-link" href="/reviews">reviews</a>
         </li> */}
         
-        <li class="nav-item">
+        {/* <li class="nav-item">
           <a class="nav-link" href="/about">About</a>
-        </li>
+        </li> */}
 
       </ul>
     </div>

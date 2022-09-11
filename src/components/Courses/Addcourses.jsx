@@ -7,8 +7,13 @@ const Addcourses = () => {
 
     const [data, setData] = useState([""])
 
+    const remover = (id) =>{
+      axios.delete(`https://digio-backend.herokuapp.com/description/${id}`)
+      alert("Deleted please refresh")
+    }
+
     useEffect(()=> {
-        axios("http://localhost:9292/tms")
+        axios("https://digio-backend.herokuapp.com/description")
         .then((recv) => {setData(recv.data)})
     },[])
     // console.log(data)
@@ -37,9 +42,9 @@ const Addcourses = () => {
         data.map((resv, index) => (
             <tr>
                 <th scope='row'>{index + 1}</th>
-                <td>{resv.name}</td>
-                <td>{resv.email}</td>
-                <td>{resv.speciality}</td>
+                <td style={{width:"240px"}}>{resv.course_name}</td>
+                <td style={{width:"680px"}}>{resv.description}</td>
+                {/* <td>{resv.speciality}</td> */}
                 <Link class="btn btn-primary mr-2" to="/CourseEdit" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
                     Edit
                   </Link>
@@ -48,7 +53,7 @@ const Addcourses = () => {
                     Delete
                   </Link> */}
 
-                <button style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
+                <button onClick={() => remover(resv.id)} style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
 
 
                 {/* <button class="btn btn-primary mr-2"></button> */}

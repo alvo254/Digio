@@ -6,7 +6,7 @@ const Home = () => {
   const [course, setCourse] = useState([""])
 
   useEffect(() => {
-    axios("http://localhost:9292/courses")
+    axios("https://digio-backend.herokuapp.com/description")
     .then((resp) => setCourse(resp.data))
 
 
@@ -28,6 +28,8 @@ const Home = () => {
            <p className="card-text">{item.description}</p>
        
          </div>
+
+         
         ))}
 
 </div>
