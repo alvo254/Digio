@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import React, { useEffect, useState } from 'react'
-import Edit from '../Edit/Edit'
+// import Edit from '../Edit/Edit'
 
 
 const Addstudent= () => {
@@ -26,6 +26,7 @@ const Addstudent= () => {
 
     const remover = (id) =>{
       axios.delete(`http://localhost:9292/student/${id}`)
+      alert("Deleted please refresh")
     }
 
 

@@ -17,32 +17,27 @@ const Add = () => {
 
   const handleChange = (e) =>{
     const {name, value} = e.target
-    setData({...data, [name]:value})
-    
+    setData({...data, [name]:value})  
   }
 
 
   const submit = (event) =>{
     event.preventDefault()
-    console.log(data)
+    // console.log(data)
     axios.post("http://localhost:9292/student",{
       name: data.name,
       email: data.email,
       grades: data.grades
     })
+    // setData({
+    //   name: "",
+    //   email:"",
+    //   grades:""
+    // })
 
      .then((recv) => {console.log(recv)})
      .then(err => console.log(err))
-    //  setData({
-    //   name: "",
-    //   email:"",
-    //   speciality:""
-    // })
-     
   }
-
-
-
 
   return (
     <div>
@@ -64,11 +59,12 @@ const Add = () => {
   </div>
 
   <button type="submit" onClick={submit} class="btn btn-primary" style={{width:"90px", marginTop:"20px"}}>Add</button>
+
   <Link class="btn btn-primary mr-2" to="/Students" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
                     Back
                   </Link>
 
-  <Link class="btn btn-primary mr-2" to="/Tm" style={{background:"gray", border:"none", width:"90px", height:"40px", marginTop:"20px", marginLeft:"1rem"}}>
+  <Link class="btn btn-primary mr-2" to="/Students" style={{background:"gray", border:"none", width:"90px", height:"40px", marginTop:"20px", marginLeft:"1rem"}}>
                     Cancel
                   </Link>
 </form>
