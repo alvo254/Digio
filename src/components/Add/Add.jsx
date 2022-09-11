@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import "./Add.css"
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 
 const Add = () => {
 
-  const {id } = useParams()
+
 
   const [data, setData] = useState({
     name: "",
@@ -25,11 +25,12 @@ const Add = () => {
   const submit = (event) =>{
     event.preventDefault()
     console.log(data)
-    axios.post("http://localhost:9292/tms",{
+    axios.post("http://localhost:9292/student",{
       name: data.name,
       email: data.email,
-      speciality: data.speciality
+      grades: data.grades
     })
+
      .then((recv) => {console.log(recv)})
      .then(err => console.log(err))
     //  setData({
@@ -45,7 +46,7 @@ const Add = () => {
 
   return (
     <div>
-      <h1>Add Tm</h1>
+      <h1>Add Student</h1>
         <form className="editTm">
   <div class="form-group">
     <label>Name</label>
@@ -58,12 +59,12 @@ const Add = () => {
     {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
   </div>
   <div class="form-group">
-    <label >Specialization</label>
-    <input name='speciality' onChange={handleChange} class="form-control"  placeholder="specialization"/>
+    <label >Student grades</label>
+    <input name='grades' onChange={handleChange} class="form-control"  placeholder="Enter grades"/>
   </div>
 
   <button type="submit" onClick={submit} class="btn btn-primary" style={{width:"90px", marginTop:"20px"}}>Add</button>
-  <Link class="btn btn-primary mr-2" to="/Tm" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
+  <Link class="btn btn-primary mr-2" to="/Students" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
                     Back
                   </Link>
 
