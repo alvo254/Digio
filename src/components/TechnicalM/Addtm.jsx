@@ -22,7 +22,7 @@ const Addtm = () => {
 
     const Fetching = () => {
       useEffect(()=> {
-        axios("http://localhost:9292/tms")
+        axios("https://digio-backend.herokuapp.com/tms")
         .then((recv) => {setData(recv.data)})
 
         
@@ -35,7 +35,7 @@ const Addtm = () => {
 
     const Deleter = (id) =>{
 
-     let getData = axios.delete(`http://localhost:9292/tms/${id}`)
+     let getData = axios.delete(`https://digio-backend.herokuapp.com/tms/${id}`)
 
      console.log(data)
      alert("Deleted")

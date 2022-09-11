@@ -11,7 +11,7 @@ const Add = () => {
   const [data, setData] = useState({
     name: "",
     email:"",
-    grades:""
+    speciality:""
   })
   
 
@@ -24,10 +24,10 @@ const Add = () => {
   const submit = (event) =>{
     event.preventDefault()
     // console.log(data)
-    axios.post("http://localhost:9292/student",{
+    axios.post("https://digio-backend.herokuapp.com/tms",{
       name: data.name,
       email: data.email,
-      grades: data.grades
+      speciality: data.speciality
     })
     // setData({
     //   name: "",
@@ -41,7 +41,7 @@ const Add = () => {
 
   return (
     <div>
-      <h1>Add Student</h1>
+      <h1>Add Tms</h1>
         <form className="editTm">
   <div class="form-group">
     <label>Name</label>
@@ -54,17 +54,17 @@ const Add = () => {
     {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
   </div>
   <div class="form-group">
-    <label >Student grades</label>
-    <input name='grades' onChange={handleChange} class="form-control"  placeholder="Enter grades"/>
+    <label >Tm speciality</label>
+    <input name='speciality' onChange={handleChange} class="form-control"  placeholder="Enter Tm speciality"/>
   </div>
 
   <button type="submit" onClick={submit} class="btn btn-primary" style={{width:"90px", marginTop:"20px"}}>Add</button>
 
-  <Link class="btn btn-primary mr-2" to="/Students" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
+  <Link class="btn btn-primary mr-2" to="/Tm" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
                     Back
                   </Link>
 
-  <Link class="btn btn-primary mr-2" to="/Students" style={{background:"gray", border:"none", width:"90px", height:"40px", marginTop:"20px", marginLeft:"1rem"}}>
+  <Link class="btn btn-primary mr-2" to="/Tm" style={{background:"gray", border:"none", width:"90px", height:"40px", marginTop:"20px", marginLeft:"1rem"}}>
                     Cancel
                   </Link>
 </form>

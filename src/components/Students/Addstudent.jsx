@@ -12,7 +12,7 @@ const Addstudent= () => {
     const [data, setData] = useState([""])
 
     useEffect(()=> {
-        axios("http://localhost:9292/student")
+        axios("https://digio-backend.herokuapp.com/student")
         .then((recv) => {setData(recv.data)})  
     },[])
 
@@ -25,7 +25,7 @@ const Addstudent= () => {
     
 
     const remover = (id) =>{
-      axios.delete(`http://localhost:9292/student/${id}`)
+      axios.delete(`https://digio-backend.herokuapp.com/student/${id}`)
       alert("Deleted please refresh")
     }
 
@@ -41,7 +41,7 @@ const Addstudent= () => {
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Grades</th>
-      <Link class="btn btn-primary mr-2" to="/Add" style={{background:"Black", border:"none", width:"90px", height:"40px"}}>
+      <Link class="btn btn-primary mr-2" to="/Addstudent" style={{background:"Black", border:"none", width:"90px", height:"40px"}}>
                     Add
                   </Link>
       {/* <button style={{background:"black", width:"100px"}} class="btn btn-primary mr-2 btn-dark">Add</button> */}
