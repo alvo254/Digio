@@ -85,10 +85,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## description
 In most school today, most of the work done manually filling out the form and save the regular place of storage provided. In management of school, they have to store all data manually by writing it on paper and store it in the regular place of storage provided. This scenario gives an idea to develop the Student Academic Management System (SAMS). This system focus on student academic management. This chapter will describe about Student Academic Management System (SAMS) overview at Project Overview, problem statement which reported about the issue caused by the manual system. Beside, the project scope and objective will detailed about Student Academic Management System (SAMS) scopes and the reason of development.
 
-# Live link - 
+# Live link - https://digio-frontend.herokuapp.com/
 
 # Features
     -[pages&navigation]
+    - Add Tm
+    - Add Students
+    - Add courses
+
 
 
 # Development
@@ -102,37 +106,10 @@ React
 Sinatra for the backend api
 
 # setup 
-steps for hositing the api 
-Create a new github repo clone it onto your machine
-Create an account on heroku 
-On heroku click link to github
-Connetc you repo that contains the api 
-Head back to cloned repo
-initialize a node project by node init
-npm install json-server to install json-server
-edit package.json scripts 
-"scripts": "node server.js"
-create a server.js file
-    contents of server.js
+    clone the application.
+    You will also need the backened to run localy from - https://github.com/alvo254/Digio-backend
+    You will need to npm install to get all the dependencies
 
-    const jsonServer = require('json-server')
-
-    const server = jsonServer.create()
-    const router = jsonServer.router('db.json')
-
-    const middlewares = jsonServer.defaults()
-
-    server.use(middlewares)
-    server.use(router)
-
-    const port = process.env.PORT || 3000
-
-    server.listen(port, () => {
-        console.log(`JSON Server is running on port ${port}`)
-    })
-
-push back to github
-Deploy the app on heroku
 
     -[deploying the react app]
 create a new app on heroku
