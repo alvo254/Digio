@@ -6,19 +6,18 @@ import axios from 'axios'
 
 const Add = () => {
 
-
-
   const [data, setData] = useState({
     name: "",
     email:"",
     speciality:""
   })
   
-
   const handleChange = (e) =>{
     const {name, value} = e.target
     setData({...data, [name]:value})  
+
   }
+
 
 
   const submit = (event) =>{
@@ -29,13 +28,12 @@ const Add = () => {
       email: data.email,
       speciality: data.speciality
     })
-    // setData({
-    //   name: "",
-    //   email:"",
-    //   grades:""
-    // })
+     .then(() => {setData({
 
-     .then((recv) => {console.log(recv)})
+      name: "",
+      email:"",
+      grades:""
+     })})
      .then(err => console.log(err))
   }
 

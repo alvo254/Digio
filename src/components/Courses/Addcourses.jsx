@@ -6,6 +6,15 @@ import React, { useEffect, useState } from 'react'
 const Addcourses = () => {
 
     const [data, setData] = useState([""])
+    // const [editing, setEditing] = useState([""])
+
+    // const update = e =>{
+    //   e.preventDefault()
+    //   setEditing(false)
+    //   const updatedRevs = reviews.map(review => review.id == form.id ? form : review)
+    //   setReviews(updatedRevs)
+    //   setForm({resturant: "", review:"", id:null })
+    // }
 
     const remover = (id) =>{
       axios.delete(`https://digio-backend.herokuapp.com/description/${id}`)

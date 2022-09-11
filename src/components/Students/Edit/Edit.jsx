@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 // import "./Add.css"
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 
@@ -9,22 +9,16 @@ const Edit = ({id}) => {
   const  [gettings, setGetting] = useState([""])
 
   useEffect(()=> {
-    axios("http://localhost:9292/student")
+    axios("https://digio-backend.herokuapp.com/tms")
     .then((resv) => setGetting(resv.data))
   },[])
-  console.log(gettings)
+  // console.log(gettings)
 
-  // gettings.map((getting) => {
-
-  //   id = {getting.id}
-
-  // })
-  
 
   const [data, setData] = useState({
     name: "",
     email:"",
-    grades:""
+    speciality:""
   })
   
 
@@ -34,16 +28,22 @@ const Edit = ({id}) => {
     
   }
 
+  const handleUpdate = (e, id) =>{
+    e.preventDefault()
+    
+    console.log(`id is ${id}`)
+  }
 
 
 
-  const submit = (event) =>{
+
+  const submit = (event, id) =>{
     event.preventDefault()
     console.log(data)
-    axios.patch(`http://localhost:9292/student/${id}`,{
+    axios.patch(`https://digio-backend.herokuapp.com/tms/${id}`,{
       name: data.name,
       email: data.email,
-      grades: data.grades
+      speciality: data.speciality
     })
      .then((recv) => {console.log(recv.id)})
      .then(err => console.log(err))
@@ -74,10 +74,13 @@ const Edit = ({id}) => {
   </div>
   <div class="form-group">
     <label >Specialization</label>
-    <input name='grades' onChange={handleChange} class="form-control"  placeholder="grades"/>
+    <input name='speciality' onChange={handleChange} class="form-control"  placeholder="grades"/>
   </div>
 
-  <button type="submit" class="btn btn-primary" style={{width:"90px"}}>Edit</button>
+  <button onClick={handleUpdate} type="submit" class="btn btn-primary" style={{width:"90px"}}>Update</button>
+  <Link class="btn btn-primary mr-2" to="/Tm" style={{background:"gray", border:"none", width:"90px", height:"40px", marginTop:"20px", marginLeft:"1rem"}}>
+                    Back
+                  </Link>
 
   <Link class="btn btn-primary mr-2" to="/Tm" style={{background:"gray", border:"none", width:"90px", height:"40px", marginTop:"20px", marginLeft:"1rem"}}>
                     Cancel

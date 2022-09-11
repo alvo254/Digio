@@ -20,6 +20,11 @@ const Addtm = () => {
         
     // },[])
 
+    const fetching = () => {
+      axios("https://digio-backend.herokuapp.com/tms")
+      .then((recv) => setData(recv.data))
+    }
+
     const Fetching = () => {
       useEffect(()=> {
         axios("https://digio-backend.herokuapp.com/tms")
@@ -35,18 +40,14 @@ const Addtm = () => {
 
     const Deleter = (id) =>{
 
-     let getData = axios.delete(`https://digio-backend.herokuapp.com/tms/${id}`)
-
-     console.log(data)
+     axios.delete(`https://digio-backend.herokuapp.com/tms/${id}`)
+    //  console.log(data)
      alert("Deleted")
      window.location.reload(false);
-    
-    
+    }
 
-      console.log(getData)
-      Fetching()
-      
-
+    const handleUpdate = (id) =>{
+      console.log(`id is ${id}`)
     }
 
 
@@ -79,13 +80,11 @@ const Addtm = () => {
                 <td>{resv.name}</td>
                 <td>{resv.email}</td>
                 <td>{resv.speciality}</td>
-                <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
+                <Link onClick={() => handleUpdate(resv.id)} to='/Edit' class="btn btn-primary mr-2"  style={{background:"gray", border:"none", width:"90px", height:"40px"}}>
                     Edit
                   </Link>
 
-                  {/* <Link class="btn btn-primary mr-2" to="/Edit" style={{background:"red", border:"none", width:"90px", height:"40px"}}>
-                    Delete
-                  </Link> */}
+
 
                 <button onClick={()=>Deleter(resv.id)}  style={{border:"none", background:"Red", width:"90px", marginBottom:"1.2rem", marginLeft:"10px"}} type="button" class="btn btn-dark">Delete</button>
 
